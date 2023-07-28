@@ -1,0 +1,78 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Left Sidebar Component</title>
+    </head>
+    <body>
+        <div id="left-sidebar">
+            <div class="line-bar-company">
+                <h3><img th:src="@{/static/images/text-company.png}" alt=""/></h3>  
+            </div>
+            <div class="vertical-menu">
+                <div class="h-100">
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li>
+                                <a th:href="@{/dashboard}" class="waves-effect">
+                                    <i class="mdi mdi-monitor-dashboard mdi-24px"></i>
+                                    <span class="pl-2">Dashboard</span>
+                                </a>
+                                <a th:if="${#strings.contains(listMenu, 'report-task')}"
+                                   th:href="@{/report-task}" 
+                                   class="waves-effect">
+                                    <i class="mdi mdi-calendar-clock mdi-24px"></i>
+                                    <span class="pl-2">Report Task</span>
+                                </a>
+                                <a th:if="${#strings.contains(listMenu, 'report-daily')}"
+                                   th:href="@{/report-daily}" 
+                                   class="waves-effect">
+                                    <i class="mdi mdi-calendar-alert mdi-24px"></i>
+                                    <span class="pl-2">Report Daily</span>
+                                </a>
+                                <a th:if="${#strings.contains(listMenu, 'miss-time')}"
+                                   th:href="@{/miss-time}" 
+                                   class="waves-effect">
+                                    <i class="mdi mdi-calendar-alert mdi-24px"></i>
+                                    <span class="pl-2">Miss Time</span>
+                                </a>
+                            </li>
+                            <li th:if="${#strings.contains(listMenu, 'members') || #strings.contains(listMenu, 'project') || #strings.contains(listMenu, 'report-manager') || #strings.contains(listMenu, 'day-leave')}" 
+                                class="menu-title">Admin</li>
+                            <li>
+                                <a th:if="${#strings.contains(listMenu, 'members')}"
+                                   th:href="@{/members}" 
+                                   class="waves-effect">
+                                    <i class="mdi mdi-account-group mdi-24px"></i>
+                                    <span class="pl-2">Member List</span>
+                                </a>
+                                <a th:if="${#strings.contains(listMenu, 'project')}"
+                                   th:href="@{/project}" 
+                                   class="waves-effect">
+                                    <i class="mdi mdi-view-grid-plus-outline mdi-24px"></i>
+                                    <span class="pl-2">Project</span>
+                                </a>
+                                <a th:if="${#strings.contains(listMenu, 'report-manager')}"
+                                   th:href="@{/report-manager}" 
+                                   class="waves-effect">
+                                    <i class="mdi mdi-calendar-account-outline mdi-24px"></i>
+                                    <span class="pl-2">Report Manager</span>
+                                </a>
+                                <a th:if="${#strings.contains(listMenu, 'day-leave')}"
+                                   th:href="@{/day-leave}" 
+                                   class="waves-effect">
+                                    <i class="mdi mdi-calendar-clock mdi-24px"></i>
+                                    <span class="pl-2">Day Leave</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

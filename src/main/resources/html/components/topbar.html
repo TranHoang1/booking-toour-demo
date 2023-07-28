@@ -1,0 +1,60 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Header Component</title>
+    </head>
+    <body>
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <a th:href="@{/dashboard}" class="logo logo-light">
+                            <span class="logo-sm">
+                                <img th:src="@{/static/images/logo-sm.png}" alt=""/>
+                            </span>
+                            <span class="logo-lg">
+                                <img th:src="@{/static/images/logo.png}"/>
+                            </span>
+                        </a>
+                    </div>
+                    <button type="button" 
+                            class="btn btn-sm px-3 font-size-24 header-item waves-effect" 
+                            id="vertical-menu-btn">
+                        <i class="mdi mdi-backburger"></i>
+                    </button>
+                </div>
+                <div class="d-flex">
+                    <div class="dropdown d-inline-block">
+                        <button type="button" 
+                                class="btn header-item waves-effect waves-light" 
+                                id="page-header-user-dropdown" 
+                                data-toggle="dropdown" 
+                                aria-haspopup="true" 
+                                aria-expanded="false">
+                            <th:block th:if="${session.avatar}== null">
+                                <img class="rounded-circle header-profile-user" th:src="@{/static/images/users/avatar-1.jpg}" alt="Header Avatar"/>
+                            </th:block>
+                            <th:block th:unless="${session.avatar}== null">
+                                <img class="rounded-circle header-profile-user" th:src="${session.avatar}" alt="Header Avatar"/>
+                            </th:block>
+                            <span class="d-none d-sm-inline-block ml-1" th:text="${session.empName}">username</span>
+                            <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/profile">
+                                <i class="mdi mdi-face-profile font-size-16 align-middle mr-1"></i> Profile
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" th:href="@{/logout_custom}">
+                                <i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </body>
+</html>

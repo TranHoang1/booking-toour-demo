@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html th:lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Layout Page</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- App favicon -->
+        <link rel="shortcut icon" th:href="@{/static/images/favicon_mieruca_32x32.ico}"/>
+        <!-- Bootstrap Css -->
+        <link rel="stylesheet" th:href="@{/static/plugins/bootstrap/css/bootstrap.min.css}" type="text/css" />
+        <link rel="stylesheet" th:href="@{/static/plugins/bootstrap-select/bootstrap-select.css}" type="text/css" />
+
+        <!-- Icons Css -->
+        <link rel="stylesheet" th:href="@{/static/css/icons.min.css}" type="text/css" />
+        <link rel="stylesheet" th:href="@{/static/plugins/sweet-alert/faber-sweetalert.css}" type="text/css" />
+        <!-- App Css-->
+        <link rel="stylesheet" th:href="@{/static/css/app.min.css}" type="text/css" />
+        <!-- Plugin Css-->
+        <th:block layout:fragment="css" th:remove="all"></th:block>
+        <!-- Custom Css-->
+        <link rel="stylesheet" th:href="@{/static/css/custom.css}" type="text/css" />
+    </head>
+    <body data-sidebar="dark" 
+          th:class="${bodyClass}">
+        <!-- Begin layout-wrapper -->
+        <div id="layout-wrapper">
+            <!--Begin Top-bar-->
+            <div th:replace="components/topbar.html :: #page-topbar"></div>
+            <!--End Top-bar-->
+            <!--Begin Left Sidebar-->
+            <div th:replace="components/left-sidebar.html :: #left-sidebar"></div>
+            <!-- End Left Sidebar -->
+            <!--Begin Main Content-->
+            <div class="main-content">
+                <!-- Start Page-content -->
+                <div class="page-content">
+                    <!-- Start Main Content -->
+                    <div class="page-content-wrapper" layout:fragment="content">
+                        <div class="page-content-wrapper">
+                            <h4>This is structure HTML</h4>
+                        </div>
+                    </div>
+                    <!-- End Main Content -->
+                    <!-- end page-content-wrapper -->
+                </div>
+                <!-- End Page-content -->
+                <!-- Start Footer -->
+                <div th:replace="components/footer.html :: #footer"></div>
+                <!-- End Footer -->
+            </div>
+
+        </div>
+        <!-- End layout-wrapper -->
+        <!-- JAVASCRIPT -->
+        <script th:src="@{/static/plugins/jquery/jquery.min.js}"></script>
+        <script th:src="@{/static/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+        <script th:src="@{/static/plugins/metismenu/metisMenu.min.js}"></script>
+        <script th:src="@{/static/plugins/simplebar/simplebar.min.js}"></script>
+        <script th:src="@{/static/plugins/node-waves/waves.min.js}"></script>   
+        <script th:src="@{/static/plugins/jquery-validate/jquery-validate.min.js}"></script>
+        <script th:src="@{/static/plugins/sweet-alert/sweetalert.min.js}"></script>
+        <script th:src="@{/static/plugins/bootstrap-select/bootstrap-select.js}"></script>
+        <!-- Init App -->
+        <script th:src="@{/static/js/app.js}"></script>
+        <!-- Custom App -->
+        <script th:src="@{/static/js/custom.js}"></script>
+        <!-- Plugin Js-->
+        <th:block layout:fragment="scripts"></th:block>
+
+    </body>
+</html>

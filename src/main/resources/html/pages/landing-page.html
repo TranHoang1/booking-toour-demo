@@ -1,0 +1,17 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      data-layout-decorate="~{layout/sub-layout}">
+<head>
+  <meta charset="utf-8" />
+  <title>Landing Testing</title>
+</head>
+<body >
+<div class="account-pages" layout:fragment="content">
+  <div class="container">
+    <div th:utext="${testLoading}"></div>
+  </div>
+</div>
+</body>
+</html>

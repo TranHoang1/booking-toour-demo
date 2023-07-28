@@ -1,0 +1,24 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Left Sidebar Component</title>
+    </head>
+    <body>
+        <footer id="footer" class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span> &copy; <span>Mieruca</span>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="text-sm-right d-none d-sm-block">
+                            <a href="#">Privacy Policy</a> | <a href="#">Terms of service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
